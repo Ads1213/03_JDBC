@@ -21,6 +21,7 @@ public class UserView {
 		int input = 0; // 메뉴 선택용 변수
 
 		do {
+			
 			try {
 				
 				System.out.println("\n===== User 관리 프로그램 =====\n");
