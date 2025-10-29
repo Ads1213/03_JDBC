@@ -1,0 +1,15 @@
+package edu.kh.jdbc.run;
+
+import edu.kh.jdbc.view.UserView;
+
+// Run -> View -> Service -> DAO 
+// DAO -> View -> Service -> Run
+public class Run {
+
+	public static void main(String[] args) {
+		
+		UserView view = new UserView();
+
+	}
+
+}
