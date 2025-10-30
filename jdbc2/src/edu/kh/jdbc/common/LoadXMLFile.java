@@ -26,7 +26,7 @@ public class LoadXMLFile {
 			// 내용을 모두 읽어와
 			// Properties 객체에 K:V 형식으로 저장
 			prop.loadFromXML(fis);
-			// 	key   	:  		value
+			// key   	: value
 			// driver 	: oracle.jdbc.driver.OracleDriver
 			// url 		: jdbc:oracle:thin:@localhost:1521:XE
 			// userName : kh_ads

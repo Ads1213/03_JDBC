@@ -24,9 +24,7 @@ import java.util.Properties;
  * 
  * 
  */
-/**
- * 
- */
+
 public class JDBCTemplate {
 	
 	// 필드
@@ -36,7 +34,7 @@ public class JDBCTemplate {
 	
 	/** 호출 시 Connection 객체를 생성하여 호출한 곳으로 반환하는 메서드
 	 * + AutoCommit 끄기
-	 * 
+	 * 예약어가 포함된 메서드를 생성할 경우 다른 클래스에서 클래스명.메서드로 호출 가능!
 	 * @return conn
 	 */
 	public static Connection getConnection() {
@@ -46,7 +44,7 @@ public class JDBCTemplate {
 			// 이전에 Connection 객체가 만들어졌고(존재하고)
 			// 아직 close() 된 상태가 아니라면
 			// 새로 만들지 않고, 기존 Connection 반환
-			if(conn != null && !conn.isClosed() ) return conn;
+			if(conn != null && !conn.isClosed()) return conn;
 			
 			// 1. Properties 객체 생성
 			Properties prop = new Properties();
@@ -89,7 +87,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
-	
+
 	
 	/** 전달 받은 커넥션에서 수행한 SQL을 rollback 하는 메서드
 	 * @param conn
@@ -129,12 +127,31 @@ public class JDBCTemplate {
 	}
 	
 	// 오버로딩이란?
-	// 과적 - 같은 이름의 메서드 과적
-	// 조건 : 매개변수, 타입, 순서가 달라야 한다.
+	// ㄴ 하나의 클래스 내에서 같은 이름을 가진 메서드를 여러 개 정의하는 기능
+	// ㄴ 클래스 내에서 매개변수를 다르게 하여 기능을 확장
+	// 조건 : 매개변수 개수, 데이터 타입, 순서가 달라야 한다.
+	// ㄴ 오버로딩의 핵심은 메서드 이름이 같아야 함.
+	
+	// 오버라이딩이란?
+	// 상속 관계에서 부모의 메서드를 자식 클래스에 맞게 기능을 재정의
+	// * 메서드 이름, 매개변수 목록, 반환 타입이 모두 같아야 함
+	
 	/** 전달 받은 Statement or PreparedStatement 둘 다 close() 할 수 있는 메서드
 	 * + 다형성의 업캐스팅 적용
 	 * -> PreparedStatement는 Statement의 자식
 	 */
+	
+	/*
+	 동일한 호출 방식(메서드 이름)을 사용해도 
+	 객체의 종류에 따라 다르게 동작하도록 하는 능력
+	 
+	 ex) 오버로딩 = add(int, int)와 add(double, double)
+	     ㄴ 하나의 이름으로 다양한 입력 형태를 처리
+	
+	 ex) 오버라이딩 = makeSound()를 자식인 Dog가 멍멍으로 재정의
+	     ㄴ 하나의 형태가 다양한 객체에서 다르게 동작
+	*/
+	
 	public static void close(Statement stmt) {
 		
 		try {

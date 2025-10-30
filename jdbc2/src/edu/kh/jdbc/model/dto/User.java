@@ -19,6 +19,14 @@ import lombok.ToString;
 // 1. 사용하고자하는 프로젝트에 라이브러리 추가
 // 2. java 코드 작성하고있는 IDE(툴) 설치
 
+// DB와 관련된 데이터를 Java 내부에서 옮기기 쉽게 담는 그릇 역할
+// Controller ↔ Service ↔ DAO 사이에서 데이터를 운반할 때 사용됨.
+
+// 필드에 세팅할 값을 세팅해 주지 않았다면 new 연산자로 만들어진 객체다 보니
+// Heap이라는 메모리 영역에 저장되며, Heap 메모리에 만들어진 객체는 절대
+// 값이 절대 값이 비어질 수 없기 때문에 JVM이 기본 값을 설정해 준다.
+// int 기본 값 : 0
+// String 기본 값 : null
 @Getter
 @Setter
 @NoArgsConstructor // 기본생성자
